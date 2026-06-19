@@ -12,6 +12,7 @@ Status values: `DONE`, `READY`, `BLOCKED`.
 | B02 | Build | Implement hero, impact, experience, skills, education, contact | All sections use source-verified content | DONE |
 | B03 | Build | Add responsive and accessible behavior | Mobile menu, focus states, semantic regions | DONE |
 | B04 | Build | Add resume assets and metadata | Resume opens and target package metadata is correct | DONE |
+| B05 | Build | Add approved profile photo | Hero photo is responsive, accessible, and deployed | DONE |
 | A01 | Agent | Add local skill, memory, metadata, and source reference | Agents can continue without reparsing binary files | DONE |
 | V01 | Verify | Production build | `npm run build` exits successfully | DONE |
 | V02 | Verify | Content residue and link audit | No shipped Tanmayi copy; internal targets resolve | DONE |
