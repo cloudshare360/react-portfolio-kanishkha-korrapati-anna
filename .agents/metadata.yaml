@@ -1,0 +1,14 @@
+project:
+  name: "Kanishkha Korrapati Anna Portfolio"
+  type: "react-portfolio"
+  framework: "create-react-app"
+  deploy_target: "github-pages"
+agent:
+  primary_skill: ".agents/skills/build-kanishkha-portfolio/SKILL.md"
+  memory: ".agents/MEMORY.md"
+  task_tracker: "docs/PROJECT_PLAN.md"
+  source_of_truth: "docs/CONTENT_SOURCE_OF_TRUTH.md"
+quality_gates:
+  - "npm run build"
+  - "no stale Tanmayi content in shipped files"
+  - "no unverified public claims"

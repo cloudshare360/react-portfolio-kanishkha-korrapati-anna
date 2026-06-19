@@ -1,0 +1,9 @@
+{
+  "short_name": "Kanishkha Portfolio",
+  "name": "Kanishkha Korrapati Anna Finance Portfolio",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#244638",
+  "background_color": "#f4f1e9"
+}
