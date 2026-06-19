@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import './responsive.css';
 
@@ -27,7 +27,15 @@ const caseStudies = [
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activePhoto, setActivePhoto] = useState(0);
+  const [photosPaused, setPhotosPaused] = useState(false);
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    if (photosPaused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+    const interval = window.setInterval(() => setActivePhoto((current) => (current + 1) % 2), 5500);
+    return () => window.clearInterval(interval);
+  }, [photosPaused]);
   return <div className="site-shell">
     <header className="nav-wrap"><nav className="nav container" aria-label="Primary navigation">
       <a className="brand" href="#top" onClick={closeMenu}><span>KA</span>Kanishkha Anna</a>
@@ -39,7 +47,7 @@ function App() {
         <h1>Turning financial complexity into <em>clear decisions.</em></h1>
         <p className="hero-copy">Financial Mathematics graduate with hands-on experience in real-estate underwriting, fixed-income portfolio research, and finance operations. I build models, investigate risk, and communicate the story behind the numbers.</p>
         <div className="actions"><a className="button primary" href="#work">Explore my work</a><a className="button text" href="Kanishkha_Korrapati_Anna_Resume_2026.pdf" target="_blank" rel="noreferrer">View résumé ↗</a></div>
-      </div><aside className="hero-card"><div className="availability"><i />Open to finance & analytics roles</div><img className="profile-photo" src={`${process.env.PUBLIC_URL}/images/kanishka.png`} alt="Kanishkha Korrapati Anna" width="619" height="610" fetchPriority="high" /><div><strong>Based in California</strong><p>Eligible to work in the U.S. on OPT; no sponsorship required for initial employment.</p></div></aside></div>
+      </div><aside className="hero-card"><div className="availability"><i />Open to finance & analytics roles</div><div className="portrait-carousel" onMouseEnter={() => setPhotosPaused(true)} onMouseLeave={() => setPhotosPaused(false)} onFocus={() => setPhotosPaused(true)} onBlur={() => setPhotosPaused(false)} aria-label="Kanishkha portrait gallery"><img className={`profile-photo ${activePhoto === 0 ? 'active' : ''}`} src={`${process.env.PUBLIC_URL}/images/kanishkha-professional.jpeg`} alt={activePhoto === 0 ? 'Kanishkha Korrapati Anna in professional attire' : ''} width="1200" height="1600" fetchPriority="high" aria-hidden={activePhoto !== 0} /><img className={`profile-photo ${activePhoto === 1 ? 'active' : ''}`} src={`${process.env.PUBLIC_URL}/images/kanishka.png`} alt={activePhoto === 1 ? 'Kanishkha Korrapati Anna' : ''} width="619" height="610" loading="lazy" aria-hidden={activePhoto !== 1} /><div className="photo-controls" aria-label="Choose portrait">{['Professional portrait', 'Personal portrait'].map((label, index) => <button type="button" key={label} className={activePhoto === index ? 'active' : ''} aria-label={`Show ${label.toLowerCase()}`} aria-pressed={activePhoto === index} onClick={() => setActivePhoto(index)}><span /></button>)}</div></div><div><strong>Based in California</strong><p>Eligible to work in the U.S. on OPT; no sponsorship required for initial employment.</p></div></aside></div>
       <div className="metric-strip"><div><strong>$1M+</strong><span>Real-estate investments evaluated</span></div><div><strong>$800K+</strong><span>Fixed-income fund managed</span></div><div><strong>25%</strong><span>Peak logistics cost reduction</span></div><div><strong>10+</strong><span>Properties researched</span></div></div></section>
       <section id="work" className="section case-study-section"><div className="container"><div className="section-head"><div><span className="kicker">Evidence of work</span><h2>From question to recommendation.</h2></div><p>Two examples of how I frame financial questions, apply analytical tools, and communicate decision-ready findings.</p></div><div className="case-study-grid">{caseStudies.map((study) => <article className="case-study" key={study.number}><div className="case-study-top"><span>{study.number}</span><small>{study.label}</small></div><h3>{study.title}</h3><div className="case-block"><h4>Decision question</h4><p>{study.question}</p></div><div className="case-block"><h4>Analysis</h4><ul>{study.analysis.map((item) => <li key={item}>{item}</li>)}</ul></div><div className="case-delivery"><h4>Delivered</h4><p>{study.delivery}</p></div></article>)}</div><p className="confidentiality-note">Presented at a high level to respect employer and fund confidentiality.</p></div></section>
       <section id="experience" className="section container"><div className="section-head"><div><span className="kicker">Selected experience</span><h2>Analysis with real-world stakes.</h2></div><p>From underwriting property investments to allocating fixed-income capital, my work connects rigorous analysis to operating decisions.</p></div>
