@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-portfolio-kanishkha-korrapati-anna/static/css/main.1ecf7068.css",
-    "main.js": "/react-portfolio-kanishkha-korrapati-anna/static/js/main.83158831.js",
+    "main.css": "/react-portfolio-kanishkha-korrapati-anna/static/css/main.d6444c49.css",
+    "main.js": "/react-portfolio-kanishkha-korrapati-anna/static/js/main.64468df2.js",
     "index.html": "/react-portfolio-kanishkha-korrapati-anna/index.html",
-    "main.1ecf7068.css.map": "/react-portfolio-kanishkha-korrapati-anna/static/css/main.1ecf7068.css.map",
-    "main.83158831.js.map": "/react-portfolio-kanishkha-korrapati-anna/static/js/main.83158831.js.map"
+    "main.d6444c49.css.map": "/react-portfolio-kanishkha-korrapati-anna/static/css/main.d6444c49.css.map",
+    "main.64468df2.js.map": "/react-portfolio-kanishkha-korrapati-anna/static/js/main.64468df2.js.map"
   },
   "entrypoints": [
-    "static/css/main.1ecf7068.css",
-    "static/js/main.83158831.js"
+    "static/css/main.d6444c49.css",
+    "static/js/main.64468df2.js"
   ]
 }
